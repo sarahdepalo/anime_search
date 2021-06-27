@@ -1,0 +1,31 @@
+<main>
+    <div class="center-container">
+        <div class="intro-container">
+            <h1>${title}</h1>
+            <p class="fadeInBottom cssanimation">Type in the name of any anime! We'll fetch a synopsis and give you an option to learn more about the
+                anime.</p>
+            <form method="POST" action="/">
+                <label>
+                    <input type="text" placeholder="Type an anime name or keyword" name="anime">
+                </label>
+                <button type="submit" class="learnMoreBtn">SEARCH</button>
+                <a href="/" class="learnMoreBtn clearBtn">CLEAR RESULTS</a>
+            </form>
+    
+        </div>
+
+    ${data.map(anime => `
+    <div class="results-container">
+        <div class="col">
+            <h2>${anime.title}</h2>
+            <p>${anime.synopsis}</p>
+            <a href="${anime.url}" class="learnMoreBtn" target="_blank">LEARN MORE</a>
+        </div>
+        <div class="col">
+            <img src="${anime.image_url}" />
+        </div>
+    </div>
+    `).join("")}
+
+    </div>
+</main>
