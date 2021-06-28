@@ -26,8 +26,3 @@ server.listen(port, hostname, () => {
 const rootController = require('./routes/index');
 
 app.use('/', rootController);
-
-
-// To Do:
-// Make it look pretty
-// Uploade to GitHub

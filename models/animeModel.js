@@ -4,7 +4,6 @@ const fetch = require('node-fetch');
 
 const getAnime = async (req, res) => {
     const { anime } = req.body;
-    // console.log(req.body);
     if(!anime) {
         res.render('template', {
             locals: {
@@ -20,11 +19,8 @@ const getAnime = async (req, res) => {
         try {
             // wait for the fetch of the url, turn into a json object 
             const data = await fetch(url).then(response => response.json());
-           // giving back data now, but still need it to populate the anime page. 
             const results = data.results; 
-            console.log(Array.isArray(results));  
             results.length = 5;
-            console.log(results);
             res.render('template', {
                 locals:  {
                     data: results,
